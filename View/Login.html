@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      span {
+        text-align: center;
+      }
+      .contact-form {
+        position: relative;
+        left: 35%;
+        margin-top: 5%;
+        max-width: 400px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .contact-form label {
+        color: black;
+      }
+      .contact-form .heading {
+        font-size: 24px;
+        color: black;
+        margin-bottom: 12px;
+        font-weight: bold;
+        display: block;
+      }
+      .contact-form form {
+        display: flex;
+        flex-direction: column;
+      }
+      .contact-form label {
+        margin-bottom: 10px;
+      }
+      textarea {
+        resize: none;
+        height: 80px;
+        width: 200px;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        padding: 10px;
+        border: #333;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        box-shadow: 0 0 5px #ff6384;
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+      }
+      .contact-form button[type="submit"] {
+        background-color: #ff6384;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .contact-form button[type="submit"]:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <?php include 'Header.html';
+       ?>
+    <div class="content">
+      <div class="contact-form">
+        <h2>Đăng nhập</h2>
+        <form method="post" action="../Controller/C_admin.php">
+            <label for="username">Username:</label>  
+          <input type="text" required name="username" value="" />    
+          <label for="password">Password:</label>  
+          <input type="password" required name="password" value="" />
+
+            <button type="submit" name="login">Đăng nhập</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thông tin sinh viên</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .content {
+        padding: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .blue {
+        color: #3ac5c9;
+      }
+      .btn {
+        display: inline;
+        position: relative;
+      }
+
+      .but {
+        --color: #8a6ad4;
+
+        display: inline-block;
+        width: 8em;
+        height: 2.6em;
+        line-height: 2.5em;
+        margin: 20px;
+        position: relative;
+        left: 75%;
+        overflow: hidden;
+        border: 2px solid var(--color);
+        transition: color 0.5s;
+        z-index: 1;
+        font-size: 17px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: var(--color);
+      }
+
+      .but:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background: var(--color);
+        height: 150px;
+        width: 200px;
+        border-radius: 50%;
+      }
+
+      .but:hover {
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .but:before {
+        top: 100%;
+        left: 100%;
+        transition: all 0.7s;
+      }
+
+      .but:hover:before {
+        top: -30px;
+        left: -30px;
+      }
+
+      .but:active:before {
+        background: #3a0ca3;
+        transition: background 0s;
+      }
+      .header {
+        display: inline;
+      }
+      .header h2 {
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <?php
+session_start();
+
+if (isset($_SESSION["admin"])) {
+    include 'HeaderAdmin.html';
+} else {
+   include 'Header.html';
+   
+}
+?>
+
+    <div class="header">
+      <h2>Danh sách nhân viên</h2>
+    </div>
+
+    <div class="content">
+      <table>
+        <tr>
+          <th>IDNV</th>
+          <th>Họ và tên</th>
+          <th>IDPB</th>
+          <th>Địa chỉ</th>
+        </tr>
+        <?php foreach ($nhanViens as $nv): ?>
+        <tr>
+          <td><?php echo $nv['IDNV']; ?></td>
+          <td><?php echo $nv['Name'];?></td>
+          <td><?php echo $nv['IDPB'] ?></td>
+          <td><?php echo $nv['Address'] ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </table>
+    </div>
+  </body>
+  <style>
+    .btn {
+      padding: 10px 20px;
+      border: unset;
+      border-radius: 15px;
+      color: #212121;
+      z-index: 1;
+      background: #e8e8e8;
+      position: relative;
+      font-weight: 100;
+      font-size: 17px;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      transition: all 250ms;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      border-radius: 15px;
+      background-color: #212121;
+      z-index: -1;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      transition: all 250ms;
+    }
+
+    .btn:hover {
+      color: #e8e8e8;
+      cursor: pointer;
+    }
+
+    .btn:hover::before {
+      width: 100%;
+    }
+  </style>
+</html>

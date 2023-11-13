@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <?php
+   
+    session_start();
+    if (isset($_SESSION["admin"]))
+    {
+      include 'HeaderAdmin.html';
+    }
+    else{
+      include 'Header.html';
+    }
+   
+    ?>
+    <form action="../Controller/C_NhanVien.php" method="post">
+      <div class="search">
+        <h3>Tìm kiếm theo:</h3>
+        <div class="radio-inputs">
+          <label class="radio">
+            <input type="radio" name="searchBy" value="idnv" checked="" />
+            <span class="name">IDNV</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="searchBy" value="name" />
+            <span class="name">Họ tên</span>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="searchBy" value="idpb" />
+            <span class="name">IDPB</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="searchBy" value="addr" />
+            <span class="name">Địa chỉ</span>
+          </label>
+        </div>
+
+        <input
+          placeholder="Tìm kiếm..."
+          class="input"
+          name="key"
+          type="search"
+        />
+        <button class="button" name="searchNhanVien">Tìm kiếm</button>
+      </div>
+    </form>
+  </body>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .search {
+      margin-bottom: 20px;
+      position: relative;
+      text-align: center;
+    }
+    .radio-inputs {
+      margin-bottom: 50px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 0.5rem;
+      background-color: #eee;
+      box-sizing: border-box;
+      box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+      padding: 0.25rem;
+      width: 300px;
+      font-size: 14px;
+      left: 40%;
+    }
+
+    .radio-inputs .radio {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+
+    .radio-inputs .radio input {
+      display: none;
+    }
+
+    .radio-inputs .radio .name {
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      border: none;
+      padding: 0.5rem 0;
+      color: rgba(51, 65, 85, 1);
+      transition: all 0.15s ease-in-out;
+    }
+
+    .radio-inputs .radio input:checked + .name {
+      background-color: #fff;
+      font-weight: 600;
+    }
+
+    .input {
+      max-width: 190px;
+      padding: 15px;
+      font-size: 17px;
+      color: black;
+      border-top-left-radius: 0.5em;
+      border-bottom-left-radius: 0.5em;
+      border: 2px solid #c2adad;
+      margin-right: -10px;
+    }
+
+    .button {
+      border: none;
+      background-color: #ff6384;
+      text-decoration: none;
+      padding: 15px;
+      padding-bottom: 17px;
+      font-size: 17px;
+      color: #fff;
+      border-top-right-radius: 0.5em;
+      border-bottom-right-radius: 0.5em;
+      cursor: pointer;
+    }
+  </style>
+</html>

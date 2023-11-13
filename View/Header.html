@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Quản lý nhân sự phòng ban</h1>
+      <div class="menu">
+        <ul>
+          <li><a href="../Controller/C_NhanVien.php">Trang chủ</a></li>
+          <li>
+            <a href="../Controller/C_NhanVien.php?action=getAllNv"
+              >TT nhân viên</a
+            >
+          </li>
+          <li>
+            <a href="../Controller/C_PhongBan.php?action=getAllPb"
+              >TT phòng ban</a
+            >
+          </li>
+          <li>
+            <a href="../Controller/C_NhanVien.php?action=search"
+              >Tìm kiếm nhân viên</a
+            >
+          </li>
+          <li>
+            <a href="../Controller/C_admin.php?action=login">Đăng nhập</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <style>
+    * {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header {
+
+        padding: 20px;
+        text-align: center;
+    }
+
+    .menu {
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: gray;
+    }
+
+
+    ul li {
+        display: inline;
+        margin: 0 40px;
+        list-style: none;
+    }
+
+    ul li a {
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+    }
+
+    ul li a:hover {
+        color: #ff9933;
+    }
+    }
+
+    body {
+        width: 90%;
+        margin: auto;
+    }
+  </style>
+</html>
